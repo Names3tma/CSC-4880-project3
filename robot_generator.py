@@ -1,10 +1,10 @@
 import random
 import os
 
-# Convert guest c sit on chair c to a number variable (because .cnf file doesn't understand letter variable)
+# Convert guest c sit on seat s to a number variable (because .cnf file doesn't understand letter variable)
 # Note that g and c count from 1 not 0
-def seat_variable(g, c, n):
-    return (g - 1) * n + c
+def seat_variable(g, s, n):
+    return (g - 1) * n + s
 
 # List all the seat variable that guest g is able to sit on
 def guest_rules(g, n):
@@ -31,23 +31,23 @@ def all_guest_rules(n):
         lst.extend(guest_at_most_1(j, n))
     return lst
 
-# Make seat c have to have any guest sit on it
-def seat_rules(c, n):
+# Make seat s have to have any guest sit on it
+def seat_rules(s, n):
     lst = []
     for i in range(1, n + 1):
-        lst.append(seat_variable(i, c, n))
+        lst.append(seat_variable(i, s, n))
     return lst
 
-# Make seat c can't have more than 2 guests
-def seat_at_most_1(c, n):
+# Make seat s can't have more than 2 guests
+def seat_at_most_1(s, n):
     lst = []
     for i in range(1, n + 1):
         for j in range(i + 1, n + 1):
-            lst.append([-seat_variable(i, c, n), -seat_variable(j, c, n)])
+            lst.append([-seat_variable(i, s, n), -seat_variable(j, s, n)])
 
     return lst
 
-# Make seat c have to have any guest sit on it and can't have more than 2 guests
+# Make seat s have to have any guest sit on it and can't have more than 2 guests
 def all_seat_rules(n):
     lst = []
     for i in range(1, n + 1):
