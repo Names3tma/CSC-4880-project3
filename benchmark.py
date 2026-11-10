@@ -3,7 +3,7 @@ import time
 import csv
 import statistics
 import matplotlib.pyplot as plt
-from robot_solver import parse_cnf, walksat
+from upgraded_robot_solver import parse_cnf, walksat
 
 paths = sorted(glob.glob("problems/*.cnf"))
 print(f"found files")
