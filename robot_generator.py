@@ -158,5 +158,5 @@ def generate_probs(count, n, p, q):
         write_cnf("problems/problem_" + str(i) + ".cnf", clauses, n, p, q)
 
 if __name__ == "__main__":
-    # 100 problems, each problem has 10 guests, 3 pairs are friends and 15 pairs are enemies
-    generate_probs(100, 10, 3, 15)
+    # 100 problems, each problem has 75 guests, 5 pairs are friends and 15 pairs are enemies
+    generate_probs(100, 75, 5, 15)

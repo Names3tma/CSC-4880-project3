@@ -29,7 +29,7 @@ def parse_cnf(path):
     return num_vars, clauses, occurences
 
 # verify CNF solution
-def walksat(num_vars, clauses, occurences, p=0.5, max_flips=100000):
+def walksat(num_vars, clauses, occurences, max_flips=1000000):
     assignment = [False] + [random.random() < 0.5 for _ in range(num_vars)]
 
     # Checks singular literal can be satisfied
@@ -46,7 +46,7 @@ def walksat(num_vars, clauses, occurences, p=0.5, max_flips=100000):
             lit = var if var in clauses[i] else -var
             if lit_true(lit):
                 true_count[i] += 1
-                if true_count[1] == 1:
+                if true_count[i] == 1:
                     unsat.discard(i)
             else:
                 true_count[i] -= 1
