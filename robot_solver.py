@@ -71,7 +71,7 @@ def main():
     num_vars, clauses, occurences = parse_cnf(path)
     result = walksat(num_vars, clauses, occurences)
 
-    if result is None: 
+    if result is None:
         print("timed out")
         return
 
